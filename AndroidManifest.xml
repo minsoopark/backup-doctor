@@ -20,5 +20,6 @@
         <activity android:name=".activities.PolicyActivity"/>
         <activity android:name=".activities.DetailInputActivity"/>
         <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.SymptomActivity"/>
     </application>
 </manifest>

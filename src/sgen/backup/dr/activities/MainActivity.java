@@ -1,6 +1,8 @@
 package sgen.backup.dr.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,6 +42,18 @@ public class MainActivity extends BaseActivity {
         alertButton = (Button) findViewById(R.id.alert_button);
 
         initConsecutiveBackPressDetector();
+
+        initEvent();
+    }
+
+    private void initEvent() {
+        symptomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SymptomActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     void initConsecutiveBackPressDetector() {
