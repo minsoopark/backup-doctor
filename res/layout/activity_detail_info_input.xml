@@ -8,11 +8,17 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="20dp"
+            android:gravity="center_horizontal">
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -32,7 +38,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -52,7 +59,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -80,7 +88,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -108,7 +117,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -128,7 +138,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -156,7 +167,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -184,7 +196,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -212,7 +225,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:id="@+id/cd_txt"
@@ -231,7 +245,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
 
             <TextView
                     android:id="@+id/drug_txt"
@@ -250,7 +265,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
             <TextView
                     android:id="@+id/alergy_txt"
@@ -269,7 +285,7 @@
 
         <Button
                 android:id="@+id/done_button"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/done" />
 
