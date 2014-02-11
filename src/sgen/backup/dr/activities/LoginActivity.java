@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import org.json.JSONObject;
 import sgen.backup.dr.R;
+import sgen.backup.dr.etc.PreferencesHelper;
 import sgen.backup.dr.network.requests.LoginRequest;
 
 public class LoginActivity extends BaseActivity {
@@ -31,6 +32,9 @@ public class LoginActivity extends BaseActivity {
         loginButton = (Button) findViewById(R.id.login_button);
         joinButton = (Button) findViewById(R.id.join_button);
 
+        String recentId = PreferencesHelper.getLoginUserId(this);
+        emailField.setText(recentId);
+
         initEvent();
     }
 
@@ -41,6 +45,8 @@ public class LoginActivity extends BaseActivity {
                 LoginRequest request = new LoginRequest(new LoginRequest.LoginRequestCallback() {
                     @Override
                     public void onComplete(JSONObject json) {
+                        PreferencesHelper.setLoginUserId(LoginActivity.this, emailField.getText().toString());
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
