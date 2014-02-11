@@ -37,9 +37,16 @@ public class JoinActivity extends BaseActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // do something
+                String id = emailField.getText().toString();
+                String password = passwordField.getText().toString();
+
+                if (id.length() == 0 || password.length() == 0) {
+                    return;
+                }
 
                 Intent intent = new Intent(JoinActivity.this, DetailInputActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("password", password);
                 startActivityForResult(intent, RequestCode.SIGN_UP);
             }
         });

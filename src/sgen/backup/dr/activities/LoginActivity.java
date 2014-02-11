@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+import org.json.JSONObject;
 import sgen.backup.dr.R;
+import sgen.backup.dr.network.requests.LoginRequest;
 
 public class LoginActivity extends BaseActivity {
 
@@ -35,11 +38,33 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // do something
+                LoginRequest request = new LoginRequest(new LoginRequest.LoginRequestCallback() {
+                    @Override
+                    public void onComplete(JSONObject json) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                    @Override
+                    public void onFail() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(
+                                        LoginActivity.this,
+                                        R.string.login_error,
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            }
+                        });
+                    }
+                });
+
+                request.execute(
+                        emailField.getText().toString(),
+                        passwordField.getText().toString()
+                );
             }
         });
 

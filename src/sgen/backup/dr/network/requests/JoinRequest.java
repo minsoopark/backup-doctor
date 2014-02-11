@@ -34,16 +34,17 @@ public class JoinRequest extends AsyncTask<String, Void, HttpResponse> {
                             "\"id\":\"" + contents[0] + "\"" +
                             "\"password\":\"" + contents[1] + "\"" +
                             "\"name\":\"" + contents[2] + "\"" +
-                            "\"phone\":\"" + contents[3] + "\"" +
-                            "\"birth\":\"" + contents[4] + "\"" +
-                            "\"height\":\"" + contents[5] + "\"" +
-                            "\"weight\":\"" + contents[6] + "\"" +
-                            "\"blood\":\"" + contents[7] + "\"" +
-                            "\"smoking\":\"" + contents[8] + "\"" +
-                            "\"drinking\":\"" + contents[9] + "\"" +
-                            "\"disease\":\"" + contents[10] + "\"" +
-                            "\"medicine\":\"" + contents[11] + "\"" +
-                            "\"allergy\":\"" + contents[12] + "\"" +
+                            "\"gender\":\"" + contents[3] + "\"" +
+                            "\"phone\":\"" + contents[4] + "\"" +
+                            "\"birth\":\"" + contents[5] + "\"" +
+                            "\"height\":\"" + contents[6] + "\"" +
+                            "\"weight\":\"" + contents[7] + "\"" +
+                            "\"blood\":\"" + contents[8] + "\"" +
+                            "\"smoking\":\"" + contents[9] + "\"" +
+                            "\"drinking\":\"" + contents[10] + "\"" +
+                            "\"disease\":\"" + contents[11] + "\"" +
+                            "\"medicine\":\"" + contents[12] + "\"" +
+                            "\"allergy\":\"" + contents[13] + "\"" +
                             "}");
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Accept", "application/json");
