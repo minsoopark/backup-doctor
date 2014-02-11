@@ -50,7 +50,7 @@ public class DetailInputActivity extends BaseActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         password = intent.getStringExtra("password");
-        gender = getString(R.string.male);
+        gender = getString(R.string.male_value);
 
         initView();
         initEvent();
@@ -118,12 +118,12 @@ public class DetailInputActivity extends BaseActivity {
                     case R.id.male_button:
                         maleButton.setSelected(true);
                         femaleButton.setSelected(false);
-                        gender = getString(R.string.male);
+                        gender = getString(R.string.male_value);
                         break;
                     case R.id.female_button:
                         maleButton.setSelected(false);
                         femaleButton.setSelected(true);
-                        gender = getString(R.string.female);
+                        gender = getString(R.string.female_value);
                         break;
                     case R.id.smoke_yes_button:
                         sYesButton.setSelected(true);
