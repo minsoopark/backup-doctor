@@ -1,5 +1,6 @@
 package sgen.backup.dr.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -48,6 +49,11 @@ public class SymptomActivity extends BaseActivity {
                 if (symptoms.keySet().size() < 5) {
                     return;
                 }
+
+                Intent intent = new Intent(SymptomActivity.this, TestResultActivity.class);
+                intent.putExtra("from_test", true);
+                intent.putExtra("json", JsonUtil.getJsonStringFromMap(symptoms));
+                startActivity(intent);
             }
         });
     }

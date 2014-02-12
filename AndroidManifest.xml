@@ -21,5 +21,6 @@
         <activity android:name=".activities.DetailInputActivity"/>
         <activity android:name=".activities.MainActivity"/>
         <activity android:name=".activities.SymptomActivity"/>
+        <activity android:name=".activities.TestResultActivity"/>
     </application>
 </manifest>
