@@ -1,6 +1,7 @@
 package sgen.backup.dr.network.requests;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -46,6 +47,8 @@ public class JoinRequest extends AsyncTask<String, Void, HttpResponse> {
                             "\"medicine\":\"" + contents[12] + "\"" +
                             "\"allergy\":\"" + contents[13] + "\"" +
                             "}");
+            params.setContentType("application/json");
+            params.setContentEncoding("UTF-8");
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Accept", "application/json");
             request.setEntity(params);

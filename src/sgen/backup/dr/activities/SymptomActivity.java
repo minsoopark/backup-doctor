@@ -5,22 +5,28 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 import de.greenrobot.event.EventBus;
+import org.json.JSONObject;
 import sgen.backup.dr.R;
 import sgen.backup.dr.etc.Events;
-import sgen.backup.dr.fragments.DepartmentFragment;
+import sgen.backup.dr.etc.JsonUtil;
+import sgen.backup.dr.fragments.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SymptomActivity extends BaseActivity {
 
-    private static final int MAX_PAGE = 1;
+    private static final int MAX_PAGE = 5;
 
     private ViewPager symptomPager;
+    private Button btnDone;
     private SymptomPagerAdapter pagerAdapter;
 
-    private Map<String, Object> symptoms;
+    private Map<String, String> symptoms;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +36,20 @@ public class SymptomActivity extends BaseActivity {
         setContentView(R.layout.activity_symptom);
 
         symptomPager = (ViewPager) findViewById(R.id.symptom_pager);
+        btnDone = (Button) findViewById(R.id.btn_done);
         pagerAdapter = new SymptomPagerAdapter(getSupportFragmentManager());
         symptomPager.setAdapter(pagerAdapter);
 
-        symptoms = new HashMap<String, Object>();
+        symptoms = new HashMap<String, String>();
+
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (symptoms.keySet().size() < 5) {
+                    return;
+                }
+            }
+        });
     }
 
     @Override
@@ -60,6 +76,14 @@ public class SymptomActivity extends BaseActivity {
         public Fragment getItem(int i) {
             if (i == 0) {
                 return new DepartmentFragment();
+            } else if (i == 1) {
+                return new WhereFragment();
+            } else if (i == 2) {
+                return new HowFragment();
+            } else if (i == 3) {
+                return new LevelFragment();
+            } else if (i == 4) {
+                return new DetailFragment();
             }
             return null;
         }
@@ -70,7 +94,7 @@ public class SymptomActivity extends BaseActivity {
         }
     }
 
-    public void onEvent(Events.SymptomInputEvent event) {
+    public void onEventMainThread(Events.SymptomInputEvent event) {
         symptoms.put(event.key, event.value);
     }
 }

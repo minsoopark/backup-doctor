@@ -24,14 +24,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginRight="8dp"
-                android:text="@string/medicine"/>
+                android:text="@string/medicine"
+                android:tag="medicine"/>
 
         <Button
                 android:id="@+id/surgeon_button"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="8dp"
-                android:text="@string/surgeon"/>
+                android:text="@string/surgeon"
+                android:tag="surgeon"/>
 
     </LinearLayout>
 

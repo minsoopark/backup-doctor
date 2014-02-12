@@ -37,6 +37,8 @@ public class DataSendRequest extends AsyncTask<String, Void, HttpResponse> {
                             "\"send_selfish\":\"" + contents[3] + "\"" +
                             "\"send_past\":\"" + contents[4] + "\"" +
                             "}");
+            params.setContentType("application/json");
+            params.setContentEncoding("UTF-8");
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Accept", "application/json");
             request.setEntity(params);

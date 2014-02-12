@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/hurt_where"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+            <Button
+                    android:id="@+id/head"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/head"
+                    android:tag="head"/>
+
+            <Button
+                    android:id="@+id/shoulder"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/shoulder"
+                    android:tag="shoulder"/>
+
+            <Button
+                    android:id="@+id/elbow"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/elbow"
+                    android:tag="elbow"/>
+
+            <Button
+                    android:id="@+id/wrist"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/wrist"
+                    android:tag="wrist"/>
+
+            <Button
+                    android:id="@+id/chest"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/chest"
+                    android:tag="chest"/>
+
+            <Button
+                    android:id="@+id/stomach"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/stomach"
+                    android:tag="stomach"/>
+
+            <Button
+                    android:id="@+id/thigh"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/thigh"
+                    android:tag="thigh"/>
+
+            <Button
+                    android:id="@+id/calf"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/calf"
+                    android:tag="calf"/>
+
+            <Button
+                    android:id="@+id/knee"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/knee"
+                    android:tag="knee"/>
+
+            <Button
+                    android:id="@+id/ankle"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/ankle"
+                    android:tag="ankle"/>
+
+            <Button
+                    android:id="@+id/foot"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/foot"
+                    android:tag="foot"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

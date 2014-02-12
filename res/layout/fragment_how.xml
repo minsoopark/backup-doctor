@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/hurt_how"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+            <ImageButton
+                    android:id="@+id/h_1"
+                    android:layout_width="234dp"
+                    android:layout_height="79dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/h_1"
+                    android:tag="h_1"/>
+
+            <ImageButton
+                    android:id="@+id/h_2"
+                    android:layout_width="234dp"
+                    android:layout_height="79dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/h_2"
+                    android:tag="h_2"/>
+
+            <ImageButton
+                    android:id="@+id/h_3"
+                    android:layout_width="234dp"
+                    android:layout_height="79dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/h_3"
+                    android:tag="h_3"/>
+
+            <ImageButton
+                    android:id="@+id/h_4"
+                    android:layout_width="234dp"
+                    android:layout_height="79dp"
+                    android:background="@drawable/h_4"
+                    android:tag="h_4"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/hurt_level"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+            <ImageButton
+                    android:id="@+id/l_1"
+                    android:layout_width="149dp"
+                    android:layout_height="39dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/l_1"
+                    android:tag="l_1"/>
+
+            <ImageButton
+                    android:id="@+id/l_2"
+                    android:layout_width="149dp"
+                    android:layout_height="39dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/l_2"
+                    android:tag="l_2"/>
+
+            <ImageButton
+                    android:id="@+id/l_3"
+                    android:layout_width="149dp"
+                    android:layout_height="39dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/l_3"
+                    android:tag="l_3"/>
+
+            <ImageButton
+                    android:id="@+id/l_4"
+                    android:layout_width="149dp"
+                    android:layout_height="39dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/l_4"
+                    android:tag="l_4"/>
+
+            <ImageButton
+                    android:id="@+id/l_5"
+                    android:layout_width="149dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/l_5"
+                    android:tag="l_5"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

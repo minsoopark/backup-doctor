@@ -34,6 +34,8 @@ public class LoginRequest extends AsyncTask<String, Void, HttpResponse> {
                             "\"login_id\":\"" + contents[0] + "\"" +
                             "\"login_pwd\":\"" + contents[1] + "\"" +
                             "}");
+            params.setContentType("application/json");
+            params.setContentEncoding("UTF-8");
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Accept", "application/json");
             request.setEntity(params);
