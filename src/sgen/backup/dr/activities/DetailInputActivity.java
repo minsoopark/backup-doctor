@@ -37,8 +37,8 @@ public class DetailInputActivity extends BaseActivity {
     private String id;
     private String password;
     private String gender;
-    private Boolean smoking = false;
-    private Boolean drinking = false;
+    private String smoking = "N";
+    private String drinking = "N";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,22 +128,22 @@ public class DetailInputActivity extends BaseActivity {
                     case R.id.smoke_yes_button:
                         sYesButton.setSelected(true);
                         sNoButton.setSelected(false);
-                        smoking = true;
+                        smoking = "Y";
                         break;
                     case R.id.smoke_no_button:
                         sYesButton.setSelected(false);
                         sNoButton.setSelected(true);
-                        smoking = false;
+                        smoking = "N";
                         break;
                     case R.id.drink_yes_button:
                         dYesButton.setSelected(true);
                         dNoButton.setSelected(false);
-                        drinking = true;
+                        drinking = "Y";
                         break;
                     case R.id.drink_no_button:
                         dYesButton.setSelected(false);
                         dNoButton.setSelected(true);
-                        drinking = false;
+                        drinking = "N";
                         break;
                 }
             }

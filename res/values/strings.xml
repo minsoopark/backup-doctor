@@ -22,8 +22,8 @@
     <string name="gender">성별</string>
     <string name="male">남자</string>
     <string name="female">여자</string>
-    <string name="male_value">남자</string>
-    <string name="female_value">여자</string>
+    <string name="male_value">male</string>
+    <string name="female_value">female</string>
     <string name="smoke">흡연</string>
     <string name="drink">음주</string>
     <string name="yes">YES</string>
