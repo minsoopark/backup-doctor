@@ -66,7 +66,7 @@ public class SymptomActivity extends BaseActivity {
                 intent.putExtra("from_test", true);
                 intent.putExtra("user", userString);
                 intent.putExtra("json", JsonUtil.getJsonStringFromMap(symptoms));
-                startActivity(intent);
+                startActivityForResult(intent, RequestCode.SYMPTOM_INPUT);
             }
         });
     }
