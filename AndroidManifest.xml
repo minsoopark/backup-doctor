@@ -22,5 +22,6 @@
         <activity android:name=".activities.MainActivity"/>
         <activity android:name=".activities.SymptomActivity"/>
         <activity android:name=".activities.TestResultActivity"/>
+        <activity android:name=".activities.HistoryActivity"/>
     </application>
 </manifest>

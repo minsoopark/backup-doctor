@@ -7,19 +7,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.json.JSONException;
+import org.json.JSONObject;
 import sgen.backup.dr.R;
 import sgen.backup.dr.etc.ConsecutiveBackPressDetector;
 
 public class MainActivity extends BaseActivity {
 
-    private ImageView profilePhoto;
+    private String userString;
+
     private TextView nameText;
     private TextView infoText;
-    private Button settingButton;
 
     private Button symptomButton;
     private Button historyButton;
-    private Button alertButton;
 
     private ConsecutiveBackPressDetector consecutiveBackPressDetector;
 
@@ -32,14 +33,25 @@ public class MainActivity extends BaseActivity {
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setTitle(getString(R.string.app_name_long));
 
-        profilePhoto = (ImageView) findViewById(R.id.profile_photo);
         nameText = (TextView) findViewById(R.id.name_txt);
         infoText = (TextView) findViewById(R.id.info_txt);
-        settingButton = (Button) findViewById(R.id.setting_button);
 
         symptomButton = (Button) findViewById(R.id.symptom_button);
         historyButton = (Button) findViewById(R.id.history_button);
-        alertButton = (Button) findViewById(R.id.alert_button);
+
+        userString = getIntent().getStringExtra("user");
+        try {
+            JSONObject jsonObject = new JSONObject(userString);
+            nameText.setText(jsonObject.getString("name"));
+            infoText.setText(
+                    jsonObject.getString("birth") + "년생" + " / " +
+                            jsonObject.getInt("height") + "cm" + " / " +
+                            jsonObject.getInt("weight") + "kg" + " / " +
+                            jsonObject.getString("blood") + "형"
+            );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         initConsecutiveBackPressDetector();
 
@@ -51,6 +63,16 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SymptomActivity.class);
+                intent.putExtra("user", userString);
+                startActivity(intent);
+            }
+        });
+
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+                intent.putExtra("user", userString);
                 startActivity(intent);
             }
         });

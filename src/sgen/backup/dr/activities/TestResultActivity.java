@@ -12,12 +12,15 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import sgen.backup.dr.R;
+import sgen.backup.dr.etc.PreferencesHelper;
 import sgen.backup.dr.etc.ResourceWrapper;
+import sgen.backup.dr.network.requests.DataSendRequest;
 
 import java.util.Map;
 
 public class TestResultActivity extends BaseActivity {
 
+    private String userString;
     private String jsonString;
     private boolean fromTest;
 
@@ -45,6 +48,7 @@ public class TestResultActivity extends BaseActivity {
 
         Intent intent = getIntent();
         fromTest = intent.getBooleanExtra("from_test", false);
+        userString = intent.getStringExtra("user");
         jsonString = intent.getStringExtra("json");
 
         try {
@@ -102,7 +106,25 @@ public class TestResultActivity extends BaseActivity {
 
         alert.setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // send data
+                DataSendRequest request = new DataSendRequest(new DataSendRequest.DataSendRequestCallback() {
+                    @Override
+                    public void onComplete(JSONObject json) {
+                        PreferencesHelper.appendHistory(TestResultActivity.this, jsonString);
+                    }
+
+                    @Override
+                    public void onFail() {
+
+                    }
+                });
+
+                request.execute(
+                        PreferencesHelper.getLoginUserId(TestResultActivity.this),
+                        input.getText().toString(),
+                        userString,
+                        jsonString,
+                        PreferencesHelper.getHistory(TestResultActivity.this)
+                );
             }
         });
 

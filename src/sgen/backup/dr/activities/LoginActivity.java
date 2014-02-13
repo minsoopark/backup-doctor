@@ -6,9 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import org.json.JSONException;
 import org.json.JSONObject;
 import sgen.backup.dr.R;
+import sgen.backup.dr.etc.JsonUtil;
 import sgen.backup.dr.etc.PreferencesHelper;
+import sgen.backup.dr.models.User;
 import sgen.backup.dr.network.requests.LoginRequest;
 
 public class LoginActivity extends BaseActivity {
@@ -45,9 +48,38 @@ public class LoginActivity extends BaseActivity {
                 LoginRequest request = new LoginRequest(new LoginRequest.LoginRequestCallback() {
                     @Override
                     public void onComplete(JSONObject json) {
-                        PreferencesHelper.setLoginUserId(LoginActivity.this, emailField.getText().toString());
+                        User user = null;
+                        try {
+                            user = new User(
+                                    json.getString("id"),
+                                    json.getString("name"),
+                                    json.getString("gender"),
+                                    json.getInt("birth"),
+                                    json.getString("phone"),
+                                    json.getInt("height"),
+                                    json.getInt("weight"),
+                                    json.getString("blood"),
+                                    json.getString("smoking"),
+                                    json.getString("drinking"),
+                                    json.getString("disease"),
+                                    json.getString("medicine"),
+                                    json.getString("allergy")
+                            );
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (user == null) {
+                            onFail();
+
+                            return;
+                        }
+                        String userString = JsonUtil.getJsonStringFromMap(user.getMapFromUser());
+
+                        PreferencesHelper.setLoginUserId(LoginActivity.this, user.getId());
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("user", userString);
                         startActivity(intent);
                         finish();
                     }

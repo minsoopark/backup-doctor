@@ -16,12 +16,16 @@ import sgen.backup.dr.etc.Events;
 import sgen.backup.dr.etc.JsonUtil;
 import sgen.backup.dr.fragments.*;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SymptomActivity extends BaseActivity {
 
     private static final int MAX_PAGE = 5;
+
+    private String userString;
 
     private ViewPager symptomPager;
     private Button btnDone;
@@ -41,7 +45,14 @@ public class SymptomActivity extends BaseActivity {
         pagerAdapter = new SymptomPagerAdapter(getSupportFragmentManager());
         symptomPager.setAdapter(pagerAdapter);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
         symptoms = new HashMap<String, String>();
+        symptoms.put("year", calendar.get(Calendar.YEAR) + "");
+        symptoms.put("month", calendar.get(Calendar.MONTH) + "");
+        symptoms.put("day", calendar.get(Calendar.DAY_OF_MONTH) + "");
+
+        userString = getIntent().getStringExtra("user");
 
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +63,7 @@ public class SymptomActivity extends BaseActivity {
 
                 Intent intent = new Intent(SymptomActivity.this, TestResultActivity.class);
                 intent.putExtra("from_test", true);
+                intent.putExtra("user", userString);
                 intent.putExtra("json", JsonUtil.getJsonStringFromMap(symptoms));
                 startActivity(intent);
             }
