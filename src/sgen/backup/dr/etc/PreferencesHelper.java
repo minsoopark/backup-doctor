@@ -21,7 +21,9 @@ public class PreferencesHelper {
         String str = pref.getString("history", "");
 
         StringBuilder builder = new StringBuilder(str);
-        builder.append(",");
+        if (!str.equals("")) {
+            builder.append("/");
+        }
         builder.append(history);
 
         pref.edit().putString("history", builder.toString()).commit();

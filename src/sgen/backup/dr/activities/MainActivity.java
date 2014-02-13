@@ -42,7 +42,10 @@ public class MainActivity extends BaseActivity {
         userString = getIntent().getStringExtra("user");
         try {
             JSONObject jsonObject = new JSONObject(userString);
-            nameText.setText(jsonObject.getString("name"));
+            String gender = jsonObject.getString("gender").equals("male")?"남":"여";
+            boolean smoking = jsonObject.getString("smoking").equals("Y");
+            boolean drinking = jsonObject.getString("drinking").equals("Y");
+            nameText.setText(jsonObject.getString("name") + " (" + gender + ")");
             infoText.setText(
                     jsonObject.getString("birth") + "년생" + " / " +
                             jsonObject.getInt("height") + "cm" + " / " +

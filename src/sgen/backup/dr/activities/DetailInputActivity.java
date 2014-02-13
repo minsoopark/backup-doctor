@@ -1,5 +1,6 @@
 package sgen.backup.dr.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,12 +61,16 @@ public class DetailInputActivity extends BaseActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ProgressDialog pd = new ProgressDialog(DetailInputActivity.this);
+                pd.setMessage(getString(R.string.loading));
+                pd.show();
                 JoinRequest request = new JoinRequest(new JoinRequest.JoinRequestCallback() {
                     @Override
                     public void onComplete(JSONObject json) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                if (pd.isShowing()) pd.dismiss();
                                 Toast.makeText(
                                         DetailInputActivity.this,
                                         R.string.join_complete,
@@ -82,6 +87,7 @@ public class DetailInputActivity extends BaseActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                if (pd.isShowing()) pd.dismiss();
                                 Toast.makeText(
                                         DetailInputActivity.this,
                                         R.string.join_error,

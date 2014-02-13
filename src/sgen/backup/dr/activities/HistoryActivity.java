@@ -28,7 +28,7 @@ public class HistoryActivity extends BaseActivity {
 
         userString = getIntent().getStringExtra("user");
         historyString = PreferencesHelper.getHistory(this);
-        histories = historyString.split(",");
+        histories = historyString.split("/");
 
         HistoryListAdapter adapter = new HistoryListAdapter(this, histories);
         listView.setAdapter(adapter);

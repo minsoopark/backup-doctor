@@ -24,4 +24,6 @@
         <activity android:name=".activities.TestResultActivity"/>
         <activity android:name=".activities.HistoryActivity"/>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

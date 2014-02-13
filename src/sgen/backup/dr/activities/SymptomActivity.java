@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import sgen.backup.dr.R;
 import sgen.backup.dr.etc.Events;
 import sgen.backup.dr.etc.JsonUtil;
+import sgen.backup.dr.etc.RequestCode;
 import sgen.backup.dr.fragments.*;
 
 import java.util.Calendar;
@@ -114,5 +115,14 @@ public class SymptomActivity extends BaseActivity {
 
     public void onEventMainThread(Events.SymptomInputEvent event) {
         symptoms.put(event.key, event.value);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RequestCode.SYMPTOM_INPUT && resultCode == RESULT_OK) {
+            finish();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package sgen.backup.dr.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +46,19 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+                pd.setMessage(getString(R.string.loading));
+                pd.show();
+
                 LoginRequest request = new LoginRequest(new LoginRequest.LoginRequestCallback() {
                     @Override
                     public void onComplete(JSONObject json) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (pd.isShowing()) pd.dismiss();
+                            }
+                        });
                         User user = null;
                         try {
                             user = new User(
@@ -89,6 +100,7 @@ public class LoginActivity extends BaseActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                if (pd.isShowing()) pd.dismiss();
                                 Toast.makeText(
                                         LoginActivity.this,
                                         R.string.login_error,

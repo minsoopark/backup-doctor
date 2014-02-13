@@ -1,14 +1,12 @@
 package sgen.backup.dr.activities;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 import sgen.backup.dr.R;
@@ -102,19 +100,41 @@ public class TestResultActivity extends BaseActivity {
         alert.setTitle(R.string.test_result);
 
         final EditText input = new EditText(this);
+        input.setHint(R.string.doctor_id);
         alert.setView(input);
 
         alert.setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
+                final ProgressDialog pd = new ProgressDialog(TestResultActivity.this);
+                pd.setMessage(getString(R.string.loading));
+                pd.show();
+
                 DataSendRequest request = new DataSendRequest(new DataSendRequest.DataSendRequestCallback() {
                     @Override
                     public void onComplete(JSONObject json) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (pd.isShowing()) pd.dismiss();
+                            }
+                        });
                         PreferencesHelper.appendHistory(TestResultActivity.this, jsonString);
+                        setResult(RESULT_OK, new Intent());
                     }
 
                     @Override
                     public void onFail() {
-
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (pd.isShowing()) pd.dismiss();
+                                Toast.makeText(
+                                        TestResultActivity.this,
+                                        R.string.send_error,
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            }
+                        });
                     }
                 });
 

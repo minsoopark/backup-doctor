@@ -51,7 +51,7 @@ public class HistoryListAdapter extends BaseAdapter {
             StringBuilder builder = new StringBuilder();
             builder.append(jsonObject.getInt("year") + "년 ");
             builder.append((jsonObject.getInt("month") + 1) + "월 ");
-            builder.append((jsonObject.getInt("day") + 1) + "일 진단 기록");
+            builder.append(jsonObject.getInt("day") + "일 진단 기록");
 
             textView.setText(builder.toString());
         } catch (JSONException e) {

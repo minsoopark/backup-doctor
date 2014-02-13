@@ -60,6 +60,9 @@
     <string name="ankle">발목</string>
     <string name="foot">발</string>
     <string name="test_result">진단 기록</string>
+    <string name="doctor_id">의사 아이디 입력</string>
     <string name="send">전송</string>
     <string name="cancel">취소</string>
+    <string name="send_error">진단 기록 전송에 실패했습니다!</string>
+    <string name="loading">잠시만 기다려주세요..</string>
 </resources>
